@@ -1,0 +1,19 @@
+<div class="container mt-3">
+	<h1>Restaurant: <%= @restaurant.name %></h1>
+	<hr>
+	<h3><%= @restaurant.name %></h3>
+	<p><%= @restaurant.address %></p>
+	<p><%= @restaurant.category %></p>
+	<p><%= @restaurant.phone_number %></p>
+	<hr>
+	<h3>Reviews</h3>
+	<% @reviews.each do |review| %>
+		<p><%= review.content %>   | Rating:    <%= review.rating %>
+			<%= link_to 'Delete', review_path(review), method: :delete %>
+		</p>
+	<% end %>
+	<button class="btn btn-info rounded btn-inline"><%= link_to "Add a new review", new_restaurant_review_path(@restaurant) %></button>
+	<br>
+	<br>
+	<button class="btn btn-info rounded"><%= link_to "Go back to main page", restaurants_path %></button>
+</div>

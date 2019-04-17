@@ -1,0 +1,17 @@
+<div class="container mt-3">
+	<h1>Restaurants</h1>
+	<hr>
+	<% @restaurants.each do |restaurant| %>
+		<div class="alert-dark">
+			<h3><%= link_to restaurant.name, restaurant_path(restaurant) %>
+			<%= link_to "Edit", edit_restaurant_path(restaurant) %>
+			<%= link_to "Delete", restaurant_path(restaurant), method: :delete %>
+				
+			</h3>
+		</div>
+	<% end %>
+	<div class="alert-danger">
+		<h3><%= link_to "New Restaurant", new_restaurant_path %>
+		</h3>
+	</div>
+</div>
